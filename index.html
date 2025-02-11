@@ -1,278 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Pierre-Sylvain Augereau - Responsable développement web</title>
-
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <!-- CSS  -->
-    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierre-Sylvain Augereau - CV</title>
     <style>
-        html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        body {
-            display: flex;
-        }
-        
-        h1 {
-            text-align: center;
-            font-size: 30px;
-        }
-        
-        h2 {
-            text-align: center;
-            font-size: 20px;
-        }
-        
-        h3 {
-            color: #990099;
-            font-weight: bolder;
-        }
-        
-        article {
-            position: relative;
-        }
-        
-        .company {
-            position: absolute;
-            top: 25px;
-        }
-        
-        .left-col {
-            text-align: left;
-            margin-left: 15px;
-            margin-right: 15px;
-            border-bottom: 2px solid rgba(229, 204, 255, 0.5);
-            color: #E5CCFF;
-        }
-        
-        .bold {
-            color: #E5CCFF;
-        }
-        
-        li {
-            list-style: none;
-            margin-top: 10px;
-        }
-        
-        #personal {
-            background-color: #190033;
-            color: white;
-            text-align: center;
-        }
-        
-        #personal p {
-            padding-left: 10px;
-            text-align: left;
-        }
-        
-        #personal p,
-        #personal ul {
-            padding-left: 10px;
-            text-align: left;
-        }
-        
-        #professional {
-            background-color: whitesmoke;
-            flex-grow: 1;
-            padding: 20px;
-        }
-        
-        #professional h2 {
-            text-align: left;
-            margin-right: 15px;
-            border-bottom: 2px solid #190033;
-            color: #190033;
-        }
-        
-        #abstract {
-            padding: 20px;
-        }
-        
-        .fonction {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        img {
-            width: 50%;
-        }
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1, h2 { color: #333; }
+        h1 { text-align: center; }
+        .contact { text-align: center; }
+        .section { margin-bottom: 20px; }
+        .skills, .education, .experience, .languages, .interests { list-style-type: none; padding: 0; }
+        .skills li, .education li, .experience li, .languages li, .interests li { margin-bottom: 10px; }
     </style>
 </head>
-
 <body>
-    <!-- Header-->
-    <section id="personal">
-        <h1>Pierre-Sylvain<br>Augereau</h1>
+    <h1>Pierre-Sylvain AUGEREAU</h1>
+    <p class="contact">
+        📍 La Rochelle, France | 📧 <a href="mailto:ps.augereau@gmail.com">ps.augereau@gmail.com</a> | 📞 +33 (0)670 952 036 <br>
+        🔗 <a href="https://github.com/PierreSylvain">GitHub</a> | <a href="https://www.linkedin.com/in/pierre-sylvain-augereau-a6676664/">LinkedIn</a>
+    </p>
 
-        <img src="img/Pierre-Sylvain_Augereau.png" alt="Pierre-Sylvain Augereau">
-        <h2>Responsable développement web</h2>
-        <p>10, rue Henri Bassé<br>F-17000 La Rochelle</p>
-        <p>+33 (0)670 952 036<br> ps.augereau@gmail.com</p>
-
-        <section>
-            <h2 class="left-col">Compétences</h2>
-            <ul>
-                <li>Méthodologie et gestion de projets</li>
-                <li>Développement HTML, CSS, Javascript, PHP, Python, Bash</li>
-                <li>Bases de données : Mysql, Postgresql, Informix</li>
-                <li>Systèmes d’exploitations Windows, Linux , AIX</li>
-                <li>Développement Prestashop, CakePHP, Symfony</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="left-col">Langues</h2>
-            <ul>
-                <li>Français : langue maternelle</li>
-                <li>Anglais : niveau B2</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="left-col">Centres d'intérêts</h2>
-            <ul>
-                <li>Improvisation théâtrale : <span class="bold">Président de l'association Impro and Co pendant 5 ans, cours et stages d'improvisation Cours de théâtre à l'Ecole Théâtre Mots Debout</span> </li>
-                <li>Course de fond, cardio et fitness <span class="bold">pour un esprit sain dans un corps sain</span></li>
-                <li><span class="bold">Depuis 2014 suivi de</span> MOOC dans différents domaines : Économie, Transmedia, Anglais, Mathématique, etc. </li>
-                <li>Certifications Coursera et Udemy <span class="bold">dans le domaine de</span> l’Intelligence Artificielle : Deep Learning, Machine Learning, NLP</li>
-            </ul>
-        </section>
-        <!-- -->
-
-
-    </section>
-    <section id="professional">
+    <div class="section">
         <h2>Profil</h2>
-        <section id="abstract">
-            Je suis un « trouveur de solutions » et ne lâche jamais un problème avant d'en avoir trouvé LA solution. J'ai choisi de devenir mentor pour transmettre mon expérience et le fruit de ma veille technologique. Je me passionne pour l'intelligence artificielle
-            avec des certifications Coursera et Udemy
-        </section>
+        <p>Passionné par la Data Science et le Traitement du Langage Naturel (NLP), j’aide les entreprises à exploiter la puissance des données pour optimiser leurs processus et prendre des décisions stratégiques.</p>
+    </div>
 
-        <section id="experiences">
-            <h2>Expériences</h2>
-            <article>
-                <div class="fonction">
-                    <h3>Responsable développement Web</h3>
-                    <p>2011 - présent</p>
-                </div>
-                <p class="company">IRIUM Software</p>
+    <div class="section">
+        <h2>Expérience Professionnelle</h2>
+        <ul class="experience">
+            <li><strong>Data Scientist & DevOps Data Science</strong> | Depuis 2022</li>
+            <li><strong>Mentor Data & Développement Web</strong> | OpenClassrooms | Depuis 2018</li>
+            <li><strong>Responsable Développement Web</strong> | IRIUM Software | 2002 - 2022</li>
+            <li><strong>Responsable Technique</strong> | IRIUM Group | 1995 - 2002</li>
+        </ul>
+    </div>
 
-                <ul>
-                    <li>Rédaction spécifications techniques</li>
-                    <li>Mise en place de « Best practices »</li>
-                    <li>Gestion et suivi de projets</li>
-                    <li>Développement de modules Prestashop</li>
-                </ul>
-            </article>
+    <div class="section">
+        <h2>Compétences</h2>
+        <ul class="skills">
+            <li>Langages : Python, Bash, SQL, PHP</li>
+            <li>Base de données : MySQL, Informix, MongoDB, ElasticSearch</li>
+            <li>Machine Learning & NLP : Scikit-learn, TensorFlow/Keras, Transformers, LLM</li>
+            <li>DevOps Data Science : Kubernetes, Docker, Argo CD, Lens, Apache Pulsar, Temporal</li>
+            <li>Chatbot vocal : Twilio, OpenAI Realtime</li>
+            <li>Développement & Gestion de projet : Git, Jira, CI/CD, Agile, UML</li>
+            <li>Visualisation de données : Tableau</li>
+        </ul>
+    </div>
 
-            <article>
-                <div class="fonction">
-                    <h3>Mentor parcours développeur web</h3>
-                    <p>2018 - présent</p>
-                </div>
-                <p class="company">Openclassrooms</p>
-                <ul>
-                    <li>Suivi de projets HTML,CSS, Javascript</li>
-                    <li>Symfony, UML, PHP, WordPress</li>
-                </ul>
-            </article>
+    <div class="section">
+        <h2>Formation</h2>
+        <ul class="education">
+            <li><strong>Ingénieur IA</strong> | OpenClassrooms | 2020 - 2021 (Bac +5)</li>
+            <li><strong>Chef de projet Multimédia</strong> | OpenClassrooms | 2016 - 2017 (Bac +3/4)</li>
+            <li><strong>Analyste Programmeur</strong> | FormAvenir86 | 1990 (Bac +2)</li>
+        </ul>
+    </div>
 
-            <article>
-                <div class="fonction">
-                    <h3>Développeur PHP, java, C#</h3>
-                    <p>2002 - 2011</p>
-                </div>
-                <p class="company">IRIUM Software</p>
-                <ul>
-                    <li>Développement d’applications en PHP, Java, C#</li>
-                    <li>Maintenance d’applications, gestion et suivi de projets</li>
-                </ul>
-            </article>
+    <div class="section">
+        <h2>Langues</h2>
+        <ul class="languages">
+            <li>Français : Langue maternelle</li>
+            <li>Anglais : Niveau B2</li>
+        </ul>
+    </div>
 
-            <article>
-                <div class="fonction">
-                    <h3>Responsable technique</h3>
-                    <p>1995 - 2002</p>
-                </div>
+    <div class="section">
+        <h2>Centres d'Intérêt</h2>
+        <ul class="interests">
+            <li>Improvisation Théâtrale (Ancien président de l’association Impro and Co)</li>
+            <li>Sport & Bien-être : Course de fond, fitness et cardio</li>
+            <li>Compétitions de Data Science : Kaggle</li>
+            <li>Apprentissage continu : MOOC (Coursera, Udemy, FUN) depuis 2014</li>
+        </ul>
+    </div>
 
-                <p class="company">IRIUM Group</p>
-                <ul>
-                    <li>Réalisation de cahiers des charges techniques et suivi de projets</li>
-                    <li>Instauration d'une démarche qualité</li>
-                </ul>
-
-
-                <article>
-                    <div class="fonction">
-                        <h3>Technicien informatique</h3>
-                        <p>1992 - 1995</p>
-                    </div>
-
-                    <p class="company">REGIE S.A.</p>
-                    <ul>
-                        <li>Installation de systèmes Unix (AIX, SCO)</li>
-                        <li>Installation et optimisation de routeurs Cisco et Motorola</li>
-                        <li>Maintenance de systèmes installés</li>
-                    </ul>
-                </article>
-                <article>
-                    <div class="fonction">
-                        <h3>Technicien informatique</h3>
-                        <p>1991 - 1992</p>
-                    </div>
-
-                    <p class="company">ACTIF Informatique</p>
-                    <ul>
-                        <li>Installation et maintenance de matériels informatiques</li>
-                        <li>Programmation en langage C</li>
-                    </ul>
-
-
-                </article>
-                <article>
-                    <div class="fonction">
-                        <h3>Développeur C</h3>
-                        <p>1988- 1990</p>
-                    </div>
-
-                    <p class="company">L.U.D.E.</p>
-                    <ul>
-                        <li>Développement de logiciels télématiques (Dos, Unix)</li>
-                    </ul>
-                </article>
-
-
-        </section>
-
-        <section id="training">
-            <h2>Formations</h2>
-            <article>
-                <div class="fonction">
-                    <h3>Chef de projet multimédia</h3>
-                    <p>2017</p>
-                </div>
-                <p class="company">Openclassrooms</p>
-            </article>
-            <article>
-                <div class="fonction">
-                    <h3>Analyste/programmeur</h3>
-                    <p>1990</p>
-                </div>
-                <p class="company">Form Avenir 86</p>
-            </article>
-        </section>
-
-
-
-    </section>
+    <p><strong>Disponible pour des missions Data Science, IA et DevOps Data Science !</strong></p>
 </body>
-
 </html>
