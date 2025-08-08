@@ -1,106 +1,605 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Pierre-Sylvain AUGEREAU</title>
+    <title>Pierre-Sylvain AUGEREAU - AI Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
-        h1, h2, h3, h4 {
-            color: #2C3E50;
-        }
+
         .container {
-            max-width: 800px;
-            margin: auto;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
         }
-        .contact-info {
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, -20px) rotate(5deg); }
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header-text .title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header-text .location {
+            font-size: 1rem;
+            opacity: 0.8;
             margin-bottom: 20px;
         }
-        .section {
-            margin-bottom: 30px;
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        ul {
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .main-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9ff;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .company {
+            font-weight: 500;
+            color: #667eea;
+            margin-top: 5px;
+        }
+
+        .period {
+            font-size: 0.9rem;
+            color: #666;
+            background: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .achievements {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .achievements li {
+            margin-bottom: 8px;
             padding-left: 20px;
+            position: relative;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e6e8ff;
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .education-item {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .education-item h4 {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-item .institution {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .education-item .year {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .languages {
+            display: grid;
+            gap: 15px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #f8f9ff;
+            border-radius: 8px;
+        }
+
+        .language-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .language-level {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .extras {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e6e8ff;
+        }
+
+        .extras ul {
+            list-style: none;
+        }
+
+        .extras li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .extras li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Pierre-Sylvain AUGEREAU</h1>
-        <h3>Data Scientist | Expert en Traitement du Langage Naturel & DevOps Data Science</h3>
-        <p class="contact-info">
-            📍 La Rochelle, France<br>
-            📧 <a href="mailto:ps.augereau@gmail.com">ps.augereau@gmail.com</a> | 📞 +33 (0)670 952 036<br>
-            🔗 <a href="https://github.com/PierreSylvain">GitHub</a> | <a href="https://www.linkedin.com/in/pierre-sylvain-augereau-a6676664/">LinkedIn</a>
-        </p>
+        <header class="header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Pierre-Sylvain AUGEREAU</h1>
+                    <div class="title">AI Engineer</div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        La Rochelle (open to Paris hybrid)
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            +33 (0)670 952 036
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            ps.augereau@gmail.com
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-section">
+                    <!-- Profile image would go here if available -->
+                    <div style="width: 120px; height: 120px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 4px solid rgba(255,255,255,0.3);">
+                        <i class="fas fa-user" style="font-size: 40px; color: rgba(255,255,255,0.8);"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-        <hr>
-        
-        <div class="section">
-            <h2>🌟 Profil</h2>
-            <p>Passionné par la Data Science et le Traitement du Langage Naturel (NLP), j’aide les entreprises à exploiter la puissance des données pour optimiser leurs processus et prendre des décisions stratégiques.</p>
-        </div>
+        <main class="main-content">
+            <div class="left-column">
+                <section class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <div class="summary">
+                        Senior Data Scientist & AI Engineer (NLP / GenAI) with a 20+ year background in software engineering, web platforms, data pipelines, and technical leadership. Experienced delivering production ML/NLP models (classification, sentiment, chatbots) from data ingestion through deployment and user adoption. Comfortable collaborating with executives and cross-functional teams; long record of remote/distributed work and mentoring developers. Passionate about applying LLMs and retrieval-augmented generation to automate complex knowledge workflows.
+                    </div>
+                </section>
 
-        <div class="section">
-            <h2>🌟 Expériences Professionnelles</h2>
-            <h3>Data Scientist & DevOps Data Science | Depuis 2022</h3>
-            <ul>
-                <li>Analyse de sentiment & classification avec Kubernetes, Apache Pulsar, Temporal, Docker.</li>
-                <li>Machine Learning & durabilité : Classification des pratiques écoresponsables.</li>
-                <li>Automatisation & IA conversationnelle avec chatbot.</li>
-                <li>Chatbot vocal avec Twilio & OpenAI Realtime.</li>
-            </ul>
+                <section class="section">
+                    <h2 class="section-title">Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Data Scientist</div>
+                                <div class="company">Raccourci Agency</div>
+                            </div>
+                            <div class="period">2022–Present</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Design & deploy NLP models (sentiment, classification) for tourism sector reputation analytics</li>
+                            <li>Develop sustainability classification from multi-source textual + structured signals</li>
+                            <li>Build & maintain travel advisor chatbot; experimentation with LLM augmentation</li>
+                            <li>Partner with product & client success to translate insights into features; present findings to stakeholders</li>
+                        </ul>
+                    </div>
 
-            <h3>Mentor Data & Développement Web | OpenClassrooms | Depuis 2018</h3>
-            <ul>
-                <li>Coaching et suivi de projets en HTML, CSS, JavaScript, PHP, Symfony, UML.</li>
-            </ul>
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Mentor (Remote)</div>
+                                <div class="company">OpenClassrooms</div>
+                            </div>
+                            <div class="period">2018–Present</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Mentor learners through web dev & data/AI curricula (HTML/CSS/JS, PHP/Symfony, UML, Python)</li>
+                            <li>Coach on project scoping, debugging, version control, and delivering to spec in distributed settings</li>
+                            <li>Recognized for clear explanation of complex tech to non-technical audiences</li>
+                        </ul>
+                    </div>
 
-            <h3>Responsable Développement Web | IRIUM Software | 2002 - 2022</h3>
-            <ul>
-                <li>Pilotage de projets et rédaction d’analyses techniques.</li>
-                <li>Implémentation de CI/CD et développement en PHP, Java, C#, Python.</li>
-            </ul>
-        </div>
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Web Development Manager</div>
+                                <div class="company">IRIUM Software</div>
+                            </div>
+                            <div class="period">2002–2022</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Led development of web solutions incl. e-commerce portals & B2B</li>
+                            <li>Authored technical analyses & integration interfaces w/ OEMs (Caterpillar, Scania...)</li>
+                            <li>Established CI/CD practices; coordinated cross-team releases</li>
+                            <li>Built apps in PHP, Java, C#, Python; wrote SQL scripts feeding BI data warehouse</li>
+                            <li>Designed internal search engine to improve support knowledge retrieval</li>
+                        </ul>
+                    </div>
 
-        <div class="section">
-            <h2>🌟 Compétences Clés</h2>
-            <ul>
-                <li><strong>Langages :</strong> Python, Bash, SQL, PHP</li>
-                <li><strong>Base de données :</strong> MySQL, Informix, MongoDB, ElasticSearch</li>
-                <li><strong>Machine Learning & NLP :</strong> Scikit-learn, TensorFlow/Keras, Transformers, LLM</li>
-                <li><strong>DevOps Data Science :</strong> Kubernetes, Docker, Argo CD</li>
-            </ul>
-        </div>
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Technical Manager</div>
+                                <div class="company">IRIUM Group</div>
+                            </div>
+                            <div class="period">1995–2002</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Managed 8-person technical team delivering and securing on-prem customer installations</li>
+                            <li>Instituted quality processes that improved deployment reliability & client satisfaction</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
 
-        <div class="section">
-            <h2>🌟 Formation</h2>
-            <ul>
-                <li>Ingénieur IA | OpenClassrooms | 2020 - 2021 (Bac +5)</li>
-                <li>Chef de projet Multimédia | OpenClassrooms | 2016 - 2017 (Bac +3/4)</li>
-            </ul>
-        </div>
+            <div class="right-column">
+                <section class="section">
+                    <h2 class="section-title">Core Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Programming</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Bash</span>
+                                <span class="skill-tag">PHP</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">JavaScript</span>
+                            </div>
+                        </div>
 
-        <div class="section">
-            <h2>🌟 Langues</h2>
-            <ul>
-                <li>Français : Langue maternelle</li>
-                <li>Anglais : Niveau B2</li>
-            </ul>
-        </div>
+                        <div class="skill-category">
+                            <h4>ML / AI</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">scikit-learn</span>
+                                <span class="skill-tag">TensorFlow/Keras</span>
+                                <span class="skill-tag">PyTorch</span>
+                                <span class="skill-tag">Hugging Face</span>
+                                <span class="skill-tag">LangChain</span>
+                                <span class="skill-tag">LoRA/PEFT</span>
+                            </div>
+                        </div>
 
-        <div class="section">
-            <h2>📚 Centres d'intérêt</h2>
-            <ul>
-                <li>Improvisation Théâtrale</li>
-                <li>Sport & Bien-être</li>
-                <li>Compétitions de Data Science (Kaggle)</li>
-            </ul>
-        </div>
+                        <div class="skill-category">
+                            <h4>NLP Tasks</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Classification</span>
+                                <span class="skill-tag">Sentiment Analysis</span>
+                                <span class="skill-tag">Entity Extraction</span>
+                                <span class="skill-tag">Topic Modeling</span>
+                                <span class="skill-tag">RAG Pipelines</span>
+                                <span class="skill-tag">Semantic Search</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h4>Data & Infrastructure</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">ElasticSearch</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Kubernetes</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Azure</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <h4>AI Engineer (Level 7 / Master's eq.)</h4>
+                        <div class="institution">OpenClassrooms</div>
+                        <div class="year">2021</div>
+                    </div>
+                    <div class="education-item">
+                        <h4>Multimedia Project Manager (L6)</h4>
+                        <div class="institution">OpenClassrooms</div>
+                        <div class="year">2017</div>
+                    </div>
+                    <div class="education-item">
+                        <h4>Analyst Programmer (L5)</h4>
+                        <div class="institution">FormAvenir86</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="languages">
+                        <div class="language-item">
+                            <span class="language-name">French</span>
+                            <span class="language-level">Native</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">English</span>
+                            <span class="language-level">B2 Working</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Interests & Extras</h2>
+                    <div class="extras">
+                        <ul>
+                            <li><strong>Improv Theatre:</strong> Former President (5 yrs) at Impro and Co, La Rochelle; led workshops & training sessions</li>
+                            <li><strong>Endurance Running:</strong> Discipline & resilience building</li>
+                            <li><strong>Continuous Learning:</strong> MOOCs (Coursera, Udemy, FUN) since 2014; active on Kaggle</li>
+                            <li><strong>Methodologies:</strong> Agile/Scrum & V-cycle</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </main>
     </div>
 </body>
 </html>
