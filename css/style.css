@@ -85,12 +85,14 @@ body {
     font-size: 1rem;
     opacity: 0.8;
     margin-bottom: 20px;
+    font-style: normal;
 }
 
 .contact-info {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    font-style: normal;
 }
 
 .contact-item {
@@ -99,6 +101,8 @@ body {
     gap: 8px;
     font-size: 0.95rem;
     transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .contact-item:hover {
@@ -158,7 +162,8 @@ body {
     gap: 40px;
 }
 
-.section {
+.left-column > section,
+.right-column > section {
     margin-bottom: 35px;
 }
 
@@ -216,12 +221,13 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     color: #333;
+    margin-bottom: 5px;
 }
 
 .company {
     font-weight: 500;
     color: #667eea;
-    margin-top: 5px;
+    margin: 0;
 }
 
 .period {
@@ -266,11 +272,15 @@ body {
     border: 1px solid #e6e8ff;
 }
 
-.skill-category h4 {
+.skill-category dt {
     color: #667eea;
     margin-bottom: 12px;
     font-size: 1rem;
     font-weight: 600;
+}
+
+.skill-category dd {
+    margin: 0;
 }
 
 .skill-tags {
@@ -301,10 +311,11 @@ body {
     border-left: 4px solid #764ba2;
 }
 
-.education-item h4 {
+.education-item h3 {
     color: #333;
     font-weight: 600;
     margin-bottom: 5px;
+    font-size: 1rem;
 }
 
 .education-item .institution {
@@ -335,6 +346,7 @@ body {
 .language-name {
     font-weight: 500;
     color: #333;
+    margin: 0;
 }
 
 .language-level {
@@ -344,6 +356,7 @@ body {
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
+    margin: 0;
 }
 
 .extras {
@@ -370,6 +383,44 @@ body {
     position: absolute;
     left: 0;
     color: #667eea;
+}
+
+/* Styles spécifiques pour les éléments sémantiques */
+hgroup {
+    display: block;
+}
+
+hgroup .title {
+    margin: 0;
+}
+
+hgroup .company {
+    margin: 0;
+}
+
+address {
+    font-style: normal;
+}
+
+figure {
+    margin: 0;
+}
+
+nav {
+    margin: 0;
+}
+
+/* Reset pour les éléments de définition */
+dl {
+    margin: 0;
+}
+
+dt {
+    font-weight: 600;
+}
+
+dd {
+    margin: 0;
 }
 
 @media (max-width: 768px) {
