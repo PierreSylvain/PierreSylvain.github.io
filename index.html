@@ -1,225 +1,312 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pierre-Sylvain AUGEREAU - AI Engineer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pierre-Sylvain AUGEREAU — AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --muted:#6b6b6b;
+    --faint:#9a9a9a;
+    --accent:#3b3a6b;
+    --line:#ececec;
+    --page:#f6f5f2;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--page);
+    line-height:1.6;
+    font-size:15px;
+    padding:48px 20px;
+  }
+  .page{
+    max-width:820px;
+    margin:0 auto;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:56px 60px;
+  }
+
+  header{margin-bottom:40px}
+  .name{
+    font-family:'Newsreader',Georgia,serif;
+    font-size:2.5rem;
+    font-weight:500;
+    letter-spacing:-.01em;
+    line-height:1.1;
+  }
+  .role{
+    color:var(--accent);
+    font-weight:500;
+    font-size:1.02rem;
+    margin-top:8px;
+    letter-spacing:.01em;
+  }
+  .meta{
+    color:var(--muted);
+    font-size:.9rem;
+    margin-top:14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    align-items:center;
+  }
+  .meta a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+  .meta a:hover{color:var(--accent);border-color:var(--accent)}
+  .meta .dot{width:3px;height:3px;border-radius:50%;background:var(--faint)}
+
+  .grid{display:grid;grid-template-columns:1fr 300px;gap:48px}
+  @media(max-width:720px){
+    .page{padding:40px 26px}
+    .grid{grid-template-columns:1fr;gap:0}
+    .name{font-size:2rem}
+  }
+
+  section{margin-bottom:34px}
+  .section-title{
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--faint);
+    padding-bottom:10px;
+    margin-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .summary{color:#3d3d3d;font-size:.95rem}
+
+  .item{margin-bottom:24px}
+  .item:last-child{margin-bottom:0}
+  .item-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .item-role{font-weight:600;font-size:.98rem}
+  .item-org{color:var(--accent);font-weight:500;font-size:.92rem;margin-top:1px}
+  .item-date{color:var(--faint);font-size:.8rem;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+  ul.points{list-style:none;margin-top:10px}
+  ul.points li{position:relative;padding-left:18px;margin-bottom:5px;color:#4a4a4a;font-size:.9rem}
+  ul.points li::before{content:'';position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.55}
+
+  .talk{margin-bottom:16px}
+  .talk-title{font-weight:500;font-size:.92rem;font-style:italic;font-family:'Newsreader',serif;color:#2a2a2a}
+  .talk-meta{color:var(--muted);font-size:.82rem;margin-top:2px}
+  .talk-meta .when{color:var(--faint)}
+
+  .skill-block{margin-bottom:16px}
+  .skill-label{font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:8px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{
+    font-size:.76rem;
+    color:#414067;
+    background:#f3f3f7;
+    border:1px solid #e7e7ef;
+    padding:3px 9px;
+    border-radius:6px;
+  }
+
+  .edu{margin-bottom:14px}
+  .edu-title{font-weight:500;font-size:.9rem}
+  .edu-org{color:var(--muted);font-size:.82rem}
+  .edu-date{color:var(--faint);font-size:.78rem}
+  .lang-row{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:6px}
+  .lang-row .lvl{color:var(--muted)}
+  ul.extras{list-style:none}
+  ul.extras li{font-size:.86rem;color:#4a4a4a;margin-bottom:8px;line-height:1.5}
+  ul.extras strong{color:var(--ink);font-weight:600}
+
+  @media print{
+    body{background:#fff;padding:0;font-size:12px}
+    .page{border:none;border-radius:0;max-width:none;padding:0}
+    a{color:inherit}
+  }
+</style>
 </head>
 <body>
-    <article class="container">
-        <header class="header">
-            <section class="header-content">
-                <hgroup class="header-text">
-                    <h1>Pierre-Sylvain AUGEREAU</h1>
-                    <p class="title">AI Engineer</p>
-                    <address class="location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        La Rochelle, France • Open to hybrid work
-                    </address>
-                    <address class="contact-info">
-                        <a href="mailto:ps.augereau@gmail.com" class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            ps.augereau@gmail.com
-                        </a>
-                    </address>
-                    <nav class="social-links">
-                        <a href="https://github.com/PierreSylvain" target="_blank" class="social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/psaugereau/" target="_blank" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://medium.com/@ps.augereau" target="_blank" class="social-link" title="Medium">
-                            <i class="fab fa-medium"></i>
-                        </a>
-                    </nav>
-                </hgroup>
-                <figure class="profile-section">
-                    <img src="img/Pierre-Sylvain_Augereau.png" alt="Pierre-Sylvain AUGEREAU" class="profile-image">
-                </figure>
-            </section>
-        </header>
+<article class="page">
+  <header>
+    <h1 class="name">Pierre-Sylvain Augereau</h1>
+    <p class="role">AI Engineer · NLP / GenAI · MLOps</p>
+    <p class="meta">
+      <span>La Rochelle, France</span><span class="dot"></span>
+      <span>Open to hybrid work</span><span class="dot"></span>
+      <a href="mailto:ps.augereau@gmail.com">ps.augereau@gmail.com</a><span class="dot"></span>
+      <a href="https://github.com/PierreSylvain" target="_blank">GitHub</a><span class="dot"></span>
+      <a href="https://www.linkedin.com/in/psaugereau/" target="_blank">LinkedIn</a><span class="dot"></span>
+      <a href="https://medium.com/@ps.augereau" target="_blank">Medium</a>
+    </p>
+  </header>
 
-        <main class="main-content">
-            <section class="left-column">
-                <section class="summary-section">
-                    <h2 class="section-title">Professional Summary</h2>
-                    <p class="summary">
-                        Senior Data Scientist & AI Engineer (NLP / GenAI) with a 20+ year background in software engineering, web platforms, data pipelines, and technical leadership. Experienced delivering production ML/NLP models (classification, sentiment, chatbots) from data ingestion through deployment and user adoption. Comfortable collaborating with executives and cross-functional teams; long record of remote/distributed work and mentoring developers. Passionate about applying LLMs and retrieval-augmented generation to automate complex knowledge workflows.
-                    </p>
-                </section>
+  <section>
+    <p class="summary">Senior Data Scientist &amp; AI Engineer (NLP / GenAI) with a 20+ year background in software engineering, web platforms, data pipelines, and technical leadership. I deliver production ML/NLP models — classification, sentiment, chatbots — from data ingestion through deployment and user adoption, and I enjoy translating complex knowledge workflows into LLM- and RAG-powered products. Comfortable with executives and cross-functional teams, with a long record of remote work and developer mentoring.</p>
+  </section>
 
-                <section class="experience-section">
-                    <h2 class="section-title">Experience</h2>
-                    
-                    <article class="experience-item">
-                        <header class="job-header">
-                            <hgroup>
-                                <h3 class="job-title">Data Scientist</h3>
-                                <p class="company">Raccourci Agency</p>
-                            </hgroup>
-                            <time class="period">2022–Present</time>
-                        </header>
-                        <ul class="achievements">
-                            <li>Design & deploy NLP models (sentiment, classification) for tourism sector reputation analytics</li>
-                            <li>Develop sustainability classification from multi-source textual + structured signals</li>
-                            <li>Build & maintain travel advisor chatbot; experimentation with LLM augmentation</li>
-                            <li>Implement high-performance RAG infrastructure for enhanced chatbot capabilities</li>
-                            <li>Create MCP servers to augment customer experience and service delivery</li>
-                            <li>Partner with product & client success to translate insights into features; present findings to stakeholders</li>
-                        </ul>
-                    </article>
+  <div class="grid">
+    <div class="col-main">
+      <section>
+        <h2 class="section-title">Experience</h2>
 
-                    <article class="experience-item">
-                        <header class="job-header">
-                            <hgroup>
-                                <h3 class="job-title">Mentor (Remote)</h3>
-                                <p class="company">OpenClassrooms</p>
-                            </hgroup>
-                            <time class="period">2018–Present</time>
-                        </header>
-                        <ul class="achievements">
-                            <li>Mentor learners through web dev & data/AI curricula (HTML/CSS/JS, PHP/Symfony, UML, Python)</li>
-                            <li>Coach on project scoping, debugging, version control, and delivering to spec in distributed settings</li>
-                            <li>Recognized for clear explanation of complex tech to non-technical audiences</li>
-                        </ul>
-                    </article>
+        <div class="item">
+          <div class="item-head">
+            <div>
+              <div class="item-role">Data Scientist</div>
+              <div class="item-org">Raccourci Agency</div>
+            </div>
+            <div class="item-date">2022 — Present</div>
+          </div>
+          <ul class="points">
+            <li>Built and deployed a review classification &amp; sentiment model (93% accuracy, 2,000 reviews/day) to drive e-reputation analytics for tourism professionals.</li>
+            <li>Developed a sustainability-scoring model (40 criteria, transformers + LLM) deployed across 8 destinations from reviews, websites, and environmental labels.</li>
+            <li>Industrialized 6 models in production via Kubernetes (Docker, pods, services, ingress), exposed through FastAPI/Flask REST APIs.</li>
+            <li>Designed a high-performance RAG infrastructure and built MCP servers to augment the travel-advisor chatbot and service delivery.</li>
+            <li>Set up production model monitoring with Grafana (metrics, alerts, SLOs).</li>
+          </ul>
+        </div>
 
-                    <article class="experience-item">
-                        <header class="job-header">
-                            <hgroup>
-                                <h3 class="job-title">Web Development Manager</h3>
-                                <p class="company">IRIUM Software</p>
-                            </hgroup>
-                            <time class="period">2002–2022</time>
-                        </header>
-                        <ul class="achievements">
-                            <li>Led development of web solutions incl. e-commerce portals & B2B</li>
-                            <li>Authored technical analyses & integration interfaces w/ OEMs (Caterpillar, Scania...)</li>
-                            <li>Established CI/CD practices; coordinated cross-team releases</li>
-                            <li>Built apps in PHP, Java, C#, Python; wrote SQL scripts feeding BI data warehouse</li>
-                            <li>Designed internal search engine to improve support knowledge retrieval</li>
-                        </ul>
-                    </article>
+        <div class="item">
+          <div class="item-head">
+            <div>
+              <div class="item-role">Trainer / Lecturer</div>
+              <div class="item-org">Excelia Hotel &amp; Tourism School</div>
+            </div>
+            <div class="item-date">2026 — Present</div>
+          </div>
+          <ul class="points">
+            <li>Design and teach the “AI &amp; GenAI for Tourism” course (Bachelor BTH3, 21h): AI fundamentals, tourism applications, prompt engineering, and case studies.</li>
+          </ul>
+        </div>
 
-                    <article class="experience-item">
-                        <header class="job-header">
-                            <hgroup>
-                                <h3 class="job-title">Technical Manager</h3>
-                                <p class="company">IRIUM Group</p>
-                            </hgroup>
-                            <time class="period">1995–2002</time>
-                        </header>
-                        <ul class="achievements">
-                            <li>Managed 8-person technical team delivering and securing on-prem customer installations</li>
-                            <li>Instituted quality processes that improved deployment reliability & client satisfaction</li>
-                        </ul>
-                    </article>
-                </section>
-            </section>
+        <div class="item">
+          <div class="item-head">
+            <div>
+              <div class="item-role">Mentor (Remote)</div>
+              <div class="item-org">OpenClassrooms</div>
+            </div>
+            <div class="item-date">2018 — Present</div>
+          </div>
+          <ul class="points">
+            <li>Mentored 72 learners across web dev &amp; data/AI curricula (HTML/CSS/JS, PHP/Symfony, UML, Python).</li>
+            <li>Coached on project scoping, debugging, version control, and delivering to spec in distributed settings.</li>
+            <li>Evaluated projects against the RNCP framework with clear, constructive feedback.</li>
+          </ul>
+        </div>
 
-            <aside class="right-column">
-                <section class="skills-section">
-                    <h2 class="section-title">Core Technical Skills</h2>
-                    <dl class="skills-grid">
-                        <div class="skill-category">
-                            <dt>Programming</dt>
-                            <dd class="skill-tags">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Bash</span>
-                                <span class="skill-tag">PHP</span>
-                                <span class="skill-tag">Java</span>
-                                <span class="skill-tag">JavaScript</span>
-                            </dd>
-                        </div>
+        <div class="item">
+          <div class="item-head">
+            <div>
+              <div class="item-role">Web Development Manager</div>
+              <div class="item-org">IRIUM Software</div>
+            </div>
+            <div class="item-date">2002 — 2022</div>
+          </div>
+          <ul class="points">
+            <li>Led web solutions incl. e-commerce portals &amp; B2B; authored technical analyses and OEM integrations (Caterpillar, Scania…).</li>
+            <li>Established CI/CD practices; built apps in PHP, Java, C#, Python; designed an internal search engine for support knowledge.</li>
+          </ul>
+        </div>
 
-                        <div class="skill-category">
-                            <dt>ML / AI</dt>
-                            <dd class="skill-tags">
-                                <span class="skill-tag">scikit-learn</span>
-                                <span class="skill-tag">TensorFlow/Keras</span>
-                                <span class="skill-tag">PyTorch</span>
-                                <span class="skill-tag">Hugging Face</span>
-                                <span class="skill-tag">LangChain</span>
-                                <span class="skill-tag">LoRA/PEFT</span>
-                            </dd>
-                        </div>
+        <div class="item">
+          <div class="item-head">
+            <div>
+              <div class="item-role">Technical Manager</div>
+              <div class="item-org">IRIUM Group</div>
+            </div>
+            <div class="item-date">1995 — 2002</div>
+          </div>
+          <ul class="points">
+            <li>Managed an 8-person technical team delivering and securing on-prem customer installations.</li>
+            <li>Instituted quality processes that improved deployment reliability and client satisfaction.</li>
+          </ul>
+        </div>
+      </section>
 
-                        <div class="skill-category">
-                            <dt>NLP Tasks</dt>
-                            <dd class="skill-tags">
-                                <span class="skill-tag">Classification</span>
-                                <span class="skill-tag">Sentiment Analysis</span>
-                                <span class="skill-tag">Entity Extraction</span>
-                                <span class="skill-tag">Topic Modeling</span>
-                                <span class="skill-tag">RAG Pipelines</span>
-                                <span class="skill-tag">Semantic Search</span>
-                            </dd>
-                        </div>
+      <section>
+        <h2 class="section-title">Talks &amp; Publications</h2>
+        <div class="talk">
+          <div class="talk-title">“From POC to Product: Sustainably Embedding AI in a Territory-Focused Agency”</div>
+          <div class="talk-meta">IANA#3 · <span class="when">June 2026</span></div>
+        </div>
+        <div class="talk">
+          <div class="talk-title">“Should We All Invest in a Chatbot on Our Websites?”</div>
+          <div class="talk-meta">Panel — CMonTheBeach, Toulon · <span class="when">May 2025</span></div>
+        </div>
+        <div class="talk">
+          <div class="talk-title">Author on Medium</div>
+          <div class="talk-meta">Regular technical articles on AI, NLP &amp; data science</div>
+        </div>
+      </section>
+    </div>
 
-                        <div class="skill-category">
-                            <dt>Data & Infrastructure</dt>
-                            <dd class="skill-tags">
-                                <span class="skill-tag">MySQL</span>
-                                <span class="skill-tag">MongoDB</span>
-                                <span class="skill-tag">ElasticSearch</span>
-                                <span class="skill-tag">Docker</span>
-                                <span class="skill-tag">Kubernetes</span>
-                                <span class="skill-tag">AWS</span>
-                                <span class="skill-tag">Azure</span>
-                            </dd>
-                        </div>
-                    </dl>
-                </section>
+    <aside class="col-side">
+      <section>
+        <h2 class="section-title">Skills</h2>
+        <div class="skill-block">
+          <div class="skill-label">Programming</div>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Bash</span><span class="tag">PHP</span><span class="tag">Java</span><span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">ML / AI</div>
+          <div class="tags">
+            <span class="tag">scikit-learn</span><span class="tag">PyTorch</span><span class="tag">TensorFlow/Keras</span><span class="tag">Hugging Face</span><span class="tag">LangChain</span><span class="tag">LoRA/PEFT</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">NLP &amp; GenAI</div>
+          <div class="tags">
+            <span class="tag">Classification</span><span class="tag">Sentiment</span><span class="tag">RAG</span><span class="tag">Semantic Search</span><span class="tag">Vector DB</span><span class="tag">Prompt Engineering</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">Data &amp; Infrastructure</div>
+          <div class="tags">
+            <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">FastAPI</span><span class="tag">CI/CD</span><span class="tag">Grafana</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">ElasticSearch</span><span class="tag">AWS</span><span class="tag">Azure</span>
+          </div>
+        </div>
+      </section>
 
-                <section class="education-section">
-                    <h2 class="section-title">Education</h2>
-                    <article class="education-item">
-                        <h3>AI Engineer (Level 7 / Master's eq.)</h3>
-                        <p class="institution">OpenClassrooms</p>
-                        <time class="year">2021</time>
-                    </article>
-                    <article class="education-item">
-                        <h3>Multimedia Project Manager (L6)</h3>
-                        <p class="institution">OpenClassrooms</p>
-                        <time class="year">2017</time>
-                    </article>
-                    <article class="education-item">
-                        <h3>Analyst Programmer (L5)</h3>
-                        <p class="institution">FormAvenir86</p>
-                    </article>
-                </section>
+      <section>
+        <h2 class="section-title">Education</h2>
+        <div class="edu">
+          <div class="edu-title">AI Engineer — RNCP Level 7 (MSc eq.)</div>
+          <div class="edu-org">OpenClassrooms</div>
+          <div class="edu-date">2020 — 2021</div>
+        </div>
+        <div class="edu">
+          <div class="edu-title">Multimedia Project Manager — Level 6</div>
+          <div class="edu-org">OpenClassrooms</div>
+          <div class="edu-date">2016 — 2017</div>
+        </div>
+        <div class="edu">
+          <div class="edu-title">Analyst Programmer — Level 5</div>
+          <div class="edu-org">FormAvenir86</div>
+        </div>
+      </section>
 
-                <section class="languages-section">
-                    <h2 class="section-title">Languages</h2>
-                    <dl class="languages">
-                        <div class="language-item">
-                            <dt class="language-name">French</dt>
-                            <dd class="language-level">Native</dd>
-                        </div>
-                        <div class="language-item">
-                            <dt class="language-name">English</dt>
-                            <dd class="language-level">B2 Working</dd>
-                        </div>
-                    </dl>
-                </section>
+      <section>
+        <h2 class="section-title">Languages</h2>
+        <div class="lang-row"><span>French</span><span class="lvl">Native</span></div>
+        <div class="lang-row"><span>English</span><span class="lvl">B2 · Working</span></div>
+      </section>
 
-                <section class="extras-section">
-                    <h2 class="section-title">Interests & Extras</h2>
-                    <article class="extras">
-                        <ul>
-                            <li><strong>Improv Theatre:</strong> Former President (5 yrs) at Impro and Co, La Rochelle; led workshops & training sessions</li>
-                            <li><strong>Endurance Running:</strong> Discipline & resilience building</li>
-                            <li><strong>Continuous Learning:</strong> MOOCs (Coursera, Udemy, FUN) since 2014; active on Kaggle</li>
-                            <li><strong>Methodologies:</strong> Agile/Scrum & V-cycle</li>
-                        </ul>
-                    </article>
-                </section>
-            </aside>
-        </main>
-    </article>
+      <section>
+        <h2 class="section-title">Interests</h2>
+        <ul class="extras">
+          <li><strong>Improv Theatre</strong> — Former President (5 yrs), Impro and Co, La Rochelle.</li>
+          <li><strong>Endurance Running</strong> — discipline &amp; resilience.</li>
+          <li><strong>Continuous Learning</strong> — MOOCs (Coursera, Udemy, FUN) since 2014; active on Kaggle.</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+</article>
 </body>
 </html>
